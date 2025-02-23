@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-container">
+            <img id="landing-image" src="" alt="Landing Image"> <!-- Leave src empty for now -->
+        </div>
+
+        <!-- "Preview Here" Button -->
+        <div class="button-container">
+            <a href="https://www.amazon.com" target="_blank" class="get-now-button">Preview Here</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to change the image dynamically
+        const images = [
+            "website/image1.jpg",
+            "website/image2.jpg",
+            "website/image3.jpg"
+        ];
+        let currentImageIndex = 0;
+        const imageElement = document.getElementById('landing-image');
+
+        // Set the first image (if available)
+        if (images.length > 0) {
+            imageElement.src = images[currentImageIndex];
+        }
+
+        function changeImage() {
+            if (images.length > 0) {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                imageElement.src = images[currentImageIndex];
+            }
+        }
+
+        // Change image every 5 seconds (5000 milliseconds)
+        setInterval(changeImage, 5000);
+    </script>
+</body>
+</html>
